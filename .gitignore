@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.log
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# VS Code
+.vscode/
+
+# Mac/Linux system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Python bytecode
+*.pyc
+
+# Environment / secrets
+.env
+.env.*
+
+# Data and outputs (optional, depending on how you use them)
+data/
+figures/
+
+# Compiled files or other artifacts
+*.sqlite3
+*.db
+*.tmp
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS & editor-specific files
+*.swp
+*.swo
+
+# Uvicorn logs
+*.pid
