@@ -37,12 +37,15 @@ San Pablo,4/8/2016 2:00,1.6,198.7,13
 
 ```
 pollrose/
-├── backend/            # FastAPI backend server and script interface
-├── data/               # Example CSV files with air quality data
-├── figures/            # Generated rose plots
-├── scripts/            # Original and modified Python scripts
-├── run_server.sh       # Bash script to launch the FastAPI server
-├── requirements.txt    # Python dependencies
+├── data/                  # CSV data files uploaded by users
+├── public/                # ReadMe images
+├── figures/               # Output images (pollrose figures)
+├── scripts/               # Windrose generation script
+├── main.py                # FastAPI backend entry point
+├── requirements.txt       # Python dependencies
+├── .env                   # Local environment variables (not committed)
+├── run_server.sh          # Script to run FastAPI locally
+├── license.txt            # License information
 └── README.md
 ```
 
@@ -98,6 +101,32 @@ pollrose/
 <p align="center">  <img src="public/pollrose_readme.png" alt="Pollrose Example" width="500" /></P>
 
 ---
+
+## Render
+
+This FastAPI backend is deployed on [Render](https://render.com/).
+
+### Deployment Notes
+
+- **Service type**: Web Service
+- **Start command**:
+
+  ```bash
+  uvicorn main:app --host 0.0.0.0 --port 10000
+  ```
+
+- **API Accessible AT**:
+  ```bash
+  POST https://your-app-name.onrender.com/generate-pollrose/
+  ```
+- **Inlcude Headers**:
+  ```bash
+  x-api-key: your-secret-key
+  ```
+- **Send Body as**:
+  ```bash
+  multipart/form-data
+  ```
 
 ## References
 
