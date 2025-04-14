@@ -106,7 +106,8 @@ def generate_pollrose_from_csv(
             "--outpath", str(FIGURE_PATH)
             ],
             capture_output=True,
-            text=True
+            text=True,
+            check=True
         )
 
         # Check for errors
@@ -124,7 +125,7 @@ def generate_pollrose_from_csv(
 
    
     # Delete files after delay
-    delete_file_later(output_path, delay=420)
-    delete_file_later(data_file_path, delay=420)
+    delete_file_later(output_path, delay=1200)
+    delete_file_later(data_file_path, delay=1200)
 
     return response
