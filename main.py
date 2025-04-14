@@ -10,9 +10,9 @@ from pathlib import Path
 app = FastAPI()
 
 # Define paths based on project structure
-SCRIPT_PATH = Path("../scripts/pollrose_mpl_09082020.py")  # Adjust if needed
-DATA_PATH = Path("../data")
-FIGURE_PATH = Path("../figures")
+SCRIPT_PATH = Path("scripts/pollrose_mpl_09082020.py")  # Adjust if needed
+DATA_PATH = Path("data")
+FIGURE_PATH = Path("figures")
 
 # Ensure output directory exists
 FIGURE_PATH.mkdir(parents=True, exist_ok=True)
