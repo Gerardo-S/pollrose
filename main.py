@@ -16,6 +16,9 @@ SCRIPT_PATH = Path("scripts/pollrose_mpl_09082020.py")  # Adjust if needed
 DATA_PATH = Path("data")
 FIGURE_PATH = Path("figures")
 
+DATA_PATH.mkdir(parents=True, exist_ok=True)
+FIGURE_PATH.mkdir(parents=True, exist_ok=True)
+
 # Ensure output directory exists
 FIGURE_PATH.mkdir(parents=True, exist_ok=True)
 app.mount("/figures", StaticFiles(directory=FIGURE_PATH), name="figures")
