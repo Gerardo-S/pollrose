@@ -100,11 +100,17 @@ pollrose/
 
 <p align="center">  <img src="public/pollrose_readme.png" alt="Pollrose Example" width="500" /></P>
 
+## Example
+
+See working example on Salton Sea Environmental Air Quality Dashboard [SSET](https://saltonseascience.org/dashboard/air-quality).
+
+<p align="center">  <img src="public/sset-pollrose.png" alt="SSET Pollrose" width="700" /></P>
+
 ---
 
 ## Render
 
-This FastAPI backend is deployed on [Render](https://render.com/).
+This FastAPI backend is deployed on [Render](https://pollrose-fastapi.onrender.com/).
 
 ### Deployment Notes
 
