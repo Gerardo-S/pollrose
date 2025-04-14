@@ -6,7 +6,9 @@ from fastapi import FastAPI, UploadFile, File, Form, Header, HTTPException
 from fastapi.staticfiles import StaticFiles
 import subprocess
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 app = FastAPI()
 
 # Define paths based on project structure
@@ -18,7 +20,9 @@ FIGURE_PATH = Path("figures")
 FIGURE_PATH.mkdir(parents=True, exist_ok=True)
 app.mount("/figures", StaticFiles(directory=FIGURE_PATH), name="figures")
 # Set your API key
-FASTAPI_KEY = os.environ["FASTAPI_KEY"] 
+FASTAPI_KEY = os.getenv("FASTAPI_KEY")
+
+
 @app.get("/")
 def home():
     return {"message": "Pollrose API is running!"}
@@ -55,6 +59,7 @@ def generate_pollrose_from_csv(
     pollv: str = Form(...),
     x_api_key: str = Header(default=None)
 ):
+
     if x_api_key != FASTAPI_KEY:
         raise HTTPException(status_code=403, detail="Unauthorized")
     """
