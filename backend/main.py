@@ -2,10 +2,9 @@ import sys
 import threading
 import time
 import os
-from fastapi import FastAPI, UploadFile, File, Form
+from fastapi import FastAPI, UploadFile, File, Form, Header, HTTPException
 from fastapi.staticfiles import StaticFiles
 import subprocess
-
 from pathlib import Path
 
 app = FastAPI()
@@ -18,7 +17,8 @@ FIGURE_PATH = Path("../figures")
 # Ensure output directory exists
 FIGURE_PATH.mkdir(parents=True, exist_ok=True)
 app.mount("/figures", StaticFiles(directory=FIGURE_PATH), name="figures")
-
+# Set your API key
+FASTAPI_KEY = os.environ["FASTAPI_KEY"] 
 @app.get("/")
 def home():
     return {"message": "Pollrose API is running!"}
@@ -52,9 +52,11 @@ def generate_pollrose_from_csv(
     site: str = Form(...),
     bdate: str = Form(...),
     edate: str = Form(...),
-    pollv: str = Form(...)
+    pollv: str = Form(...),
+    x_api_key: str = Header(default=None)
 ):
-    
+    if x_api_key != FASTAPI_KEY:
+        raise HTTPException(status_code=403, detail="Unauthorized")
     """
     Run the pollution script and generate a plot based on user input.
     """
